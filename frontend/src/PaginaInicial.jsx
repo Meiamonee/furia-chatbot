@@ -32,7 +32,7 @@ const LandingPage = () => {
                         className="logo"
                     />
                 </div>
-                <h1 className="title">FURIA Chatbot</h1>
+                <h1 className="title">FURIA CHATBOT</h1>
                 <p className="description">
                     Converse com o bot da FURIA e fique por dentro dos jogos, estatísticas e muito mais!
                 </p>
