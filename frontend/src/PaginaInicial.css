@@ -1,0 +1,142 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100%;
+  }
+  
+
+.title {
+    font-family: 'Graduate', sans-serif;
+    font-size: 3rem;
+    color: white;
+}
+
+.description {
+    font-family: "Special Gothic Condensed One", sans-serif;
+    font-size: 2rem;
+    color: white;
+}
+
+
+.landing-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  .fundo-video {
+    background-color: rgb(3, 61, 84);
+    position: absolute;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .fundo-video .video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+  
+  .fundo-video::after {
+    content: "";
+    background-color: rgb(3, 61, 84);
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 1) 100%);
+  }
+  
+  
+  
+  .content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    padding: 20px;
+  }
+  
+  .logo-container {
+    margin-bottom: 20px;
+  }
+  
+  .logo {
+    width: 150px;
+    height: auto;
+  }
+  
+  .title {
+    font-size: 3rem;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .chat-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .chat-button:hover {
+    background-color: #333;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+   
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .social-icons a {
+    color: white;
+    margin: 0 15px; /* Espaçamento entre os ícones */
+    font-size: 36px; /* Tamanho maior dos ícones */
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #f0f0f0; /* Mudança de cor ao passar o mouse */
+  }
+  
+  
