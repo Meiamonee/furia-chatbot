@@ -9,7 +9,7 @@ const LandingPage = () => {
 
     const handleChatClick = () => {
         navigate('/chat');
-    };
+      };
 
     return (
         <div className="landing-container">

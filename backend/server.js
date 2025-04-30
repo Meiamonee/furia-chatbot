@@ -1,36 +1,60 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = 5000;
 
-// Middleware
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json());
 
-// Rota de exemplo para o chatbot
-app.post('/mensagem', (req, res) => {
-  const { texto } = req.body;
 
-  let resposta = 'Desculpe, não entendi sua pergunta.';
+const respostas = {
+  jogo: [
+    'O próximo jogo da FURIA é sexta às 18h! 🔥',
+    'Na próxima quinta temos partida contra a MIBR!',
+    'Fique ligado: jogo amanhã às 20h no ESL One!'
+  ],
+  mvp: [
+    'No último jogo, o MVP foi o KSCERATO! 🏆',
+    'Quem brilhou foi o yuurih, MVP do dia!',
+    'MVP foi o arT com aquele clutch incrível!'
+  ],
+  saudacao: [
+    'Fala, fã da FURIA! Como posso ajudar?',
+    'E aí! Que pergunta manda?',
+    'Salve! Pronto para falar sobre a FURIA?'
+  ]
+};
 
-  if (texto.toLowerCase().includes('próximo jogo')) {
-    resposta = 'Próximo jogo da FURIA é sexta-feira às 18h!';
+
+function gerarResposta(message) {
+  const msg = message.toLowerCase();
+
+  // Percorre cada intenção
+  for (const intent in respostas) {
+    if (msg.includes(intent)) {
+      const lista = respostas[intent];
+      // escolhe randomicamente uma resposta
+      return lista[Math.floor(Math.random() * lista.length)];
+    }
   }
 
-  res.json({ resposta });
+
+  const defaultReplies = [
+    'Desculpe, não entendi. Pode reformular?',
+    'Hmmm... não captei, tenta outra coisa!',
+    'Ainda estou aprendendo, manda outra pergunta.'
+  ];
+  return defaultReplies[Math.floor(Math.random() * defaultReplies.length)];
+}
+
+app.post('/api/chat', (req, res) => {
+  const { message } = req.body;
+  const reply = gerarResposta(message);
+  res.json({ reply });
 });
 
-// Servir os arquivos estáticos do React
-app.use(express.static(path.join(__dirname, '../frontend/build')));
-
-// Rota catch-all para retornar o index.html do React
-app.get('/*splat', (req, res) => {
-  res.sendFile(path.join(__dirname, '../frontend/build', 'index.html'));
-});
-
-// Iniciar o servidor
 app.listen(PORT, () => {
-  console.log(`Servidor rodando na porta ${PORT}`);
+  console.log(`✅ Backend rodando em http://localhost:${PORT}`);
 });
