@@ -3,9 +3,13 @@
 O Fúria Chatbot é um assistente virtual desenvolvido para interagir com usuários de forma dinâmica e eficiente. Construído com Node.js, HTML, CSS e JavaScript, o projeto possui uma arquitetura dividida entre frontend e backend, facilitando a manutenção e escalabilidade.
 🚀 Tecnologias Utilizadas
 
-    Node.js
+     Node.js
 
     Express
+
+    Socket.IO
+
+    React
 
     HTML5
 
